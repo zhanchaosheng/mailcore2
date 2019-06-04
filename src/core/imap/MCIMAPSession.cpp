@@ -4409,7 +4409,7 @@ String * IMAPSession::plainTextRendering(IMAPMessage * message, String * folder,
 {
     String * htmlString = htmlRendering(message, folder, pError);
     
-    if (* pError != ErrorNone) {
+    if (* pError != ErrorNone || htmlString == NULL) {
         return NULL;
     }
     
@@ -4422,7 +4422,7 @@ String * IMAPSession::plainTextBodyRendering(IMAPMessage * message, String * fol
     MCAssert(folder != NULL);
     String * htmlBodyString = htmlBodyRendering(message, folder, pError);
     
-    if (* pError != ErrorNone) {
+    if (* pError != ErrorNone || htmlBodyString == NULL) {
         return NULL;
     }
     
