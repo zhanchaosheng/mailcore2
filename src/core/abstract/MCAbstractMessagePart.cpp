@@ -70,11 +70,17 @@ void AbstractMessagePart::setMainPart(AbstractPart * mainPart)
 
 AbstractPart * AbstractMessagePart::partForContentID(String * contentID)
 {
+    if (mainPart() == NULL) {
+        return NULL;
+    }
     return mainPart()->partForContentID(contentID);
 }
 
 AbstractPart * AbstractMessagePart::partForUniqueID(String * contentID)
 {
+    if (mainPart() == NULL) {
+        return NULL;
+    }
     return mainPart()->partForUniqueID(contentID);
 }
 

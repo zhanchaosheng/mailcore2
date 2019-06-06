@@ -237,11 +237,17 @@ static AbstractPart * partForPartIDInMultipart(AbstractMultipart * part, String 
 
 AbstractPart * IMAPMessage::partForContentID(String * contentID)
 {
+    if (mainPart() == NULL) {
+        return NULL;
+    }
     return mainPart()->partForContentID(contentID);
 }
 
 AbstractPart * IMAPMessage::partForUniqueID(String * uniqueID)
 {
+    if (mainPart() == NULL) {
+        return NULL;
+    }
     return mainPart()->partForUniqueID(uniqueID);
 }
 
